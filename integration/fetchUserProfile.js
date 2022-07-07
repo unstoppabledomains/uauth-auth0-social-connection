@@ -21,9 +21,9 @@ module.exports = function fetchUserProfile(accessToken, context, callback) {
         return callback(new Error(body));
       }
       const profile = {
-        user_id: bodyParsed.sub,
+        user_id: bodyParsed.wallet_address,
+        nickname: bodyParsed.wallet_address,
         name: bodyParsed.sub,
-        nickname: bodyParsed.sub,
         email: bodyParsed.email,
         email_verified: bodyParsed.email_verified,
         app_metadata: {

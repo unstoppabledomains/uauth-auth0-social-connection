@@ -89,9 +89,9 @@ describe("fetchUserProfile", () => {
       expect(profileCallback.mock.calls).toHaveLength(1);
       expect(profileCallback.mock.calls[0][0]).toBeNull();
       expect(profileCallback.mock.calls[0][1]).toEqual({
-        user_id: "__test_sub__",
+        user_id: "__test_wallet_address__",
         name: "__test_sub__",
-        nickname: "__test_sub__",
+        nickname: "__test_wallet_address__",
         email: "__test_email__",
         email_verified: true,
         app_metadata: {

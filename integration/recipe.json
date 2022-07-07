@@ -19,6 +19,12 @@
       "label": "Humanity Check",
       "required": false,
       "default": false
+    },
+    {
+      "scope": "humanity_check:optional",
+      "label": "Humanity Check Optional",
+      "required": false,
+      "default": false
     }
   ],
   "configuration": [
