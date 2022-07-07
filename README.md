@@ -1,6 +1,11 @@
-# Social Connection Integration template
+# Login with Unstoppable Auth0 social connection
 
-This template is used to create Social Connections integrations.
+Proof of concept video available on Loom
+https://www.loom.com/share/bf644f68def0474190ca4165b3034500
+
+## Key implementation details
+- Code and instructions in the `/integration` directory
+- Branding in the `/media` directory
 
 ## Documentation
 
