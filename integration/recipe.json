@@ -22,7 +22,7 @@
     },
     {
       "scope": "humanity_check:optional",
-      "label": "Humanity Check Optional",
+      "label": "Humanity Check - Optional",
       "required": false,
       "default": false
     }
@@ -31,13 +31,13 @@
     {
       "name": "client_id",
       "label": "Client ID",
-      "description": "Public unique identifier for this application.",
+      "description": "Login with Unstoppable client ID",
       "required": true
     },
     {
       "name": "client_secret",
       "label": "Client Secret",
-      "description": "Secret for this application.",
+      "description": "Login with Unstoppable client Secret",
       "required": true
     }
   ]
