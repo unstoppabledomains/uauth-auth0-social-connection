@@ -37,7 +37,7 @@
     {
       "name": "client_secret",
       "label": "Client Secret",
-      "description": "Login with Unstoppable client Secret",
+      "description": "Login with Unstoppable client secret",
       "required": true
     }
   ]

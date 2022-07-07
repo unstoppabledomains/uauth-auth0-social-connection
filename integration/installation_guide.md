@@ -1,24 +1,33 @@
-Login with Unstoppable allows an Unstoppable Domain owner to log in to your application using their Ethereum or Polygon wallet. After successful login, your application can obtain profile information about the Unstoppable Domain user such as email, domain name, wallet address and proof of humanity.
+Login with Unstoppable allows an Unstoppable Domains user to access your application using their crypto wallet. After successful login, your application can receive profile information about the Unstoppable Domains user such as domain name, wallet address, email address and proof of humanity.
 
 ## Prerequisites
 
 1. An Auth0 account and tenant. [Sign up for free here](https://auth0.com/signup).
-2. An Unstoppable Domains client ID. [Create one for free here](https://dashboard.auth.unstoppabledomains.com/).
+2. A Login with Unstoppable client ID. [Create one for free here](https://dashboard.auth.unstoppabledomains.com/).
 
 ## Set up Login with Unstoppable
 
-1. Create a client ID
+You will need two pieces of information from the Unstoppable Domains client dashboard: `client_id` and `client_secret`. These values will be used when you configure the Auth0 social connection.
+
+1. Login to the Unstoppable Domains Client Dashboard
+   1. Connect a crypto wallet such as Metamask
+   1. Your client ID will be associated with the connected wallet
+   1. Keep the keys to your wallet in a safe place256
+1. Create a new client ID
+   1. Make note of the `client_id` value at the top of the page
+   1. **Use this value in the `Client ID` field on the Unstoppable Domains social connection**
 1. Add a redirect URI for your tenant
-   1. Format is `https://TENANT_ID.us.auth0.com/login/callback`. Make sure to use the exact format above.
-   1. Click the `+` button
+   1. Login with Unstoppable expects the redirect URI to be `https://TENANT_ID.us.auth0.com/login/callback`
+   1. Make sure to use the exact format above
+   1. Click the `+` button to verify the URI
 1. Click advanced configuration
-   1. Change "Token Endpoint Authentication Method" value
-   1. Select "Client Secret Post"
+   1. Find *Token Endpoint Authentication Method* option
+   1. Select *Client Secret Post*
 1. Go back to top of page
-   1. Click "rotate secret"
-   1. Make note of the new `clientSecret` value in the configuration
-   1. It will only be displayed once
-1. Add custom branding to your client
+   1. Click the *Rotate Secret* button
+   1. Make note of the new `clientSecret` value in the configuration (it will only be displayed once)
+   1. **Use this value in the `Client Secret` field on the Unstoppable Domains social connection**
+1. Add custom branding to your client (Recommended)
    1. Client name
    1. Client URI
    1. Logo URI
@@ -42,4 +51,8 @@ You're ready to [test this Connection](https://auth0.com/docs/authenticate/ident
 
 ## Troubleshooting
 
-1. Make sure the `redirect_uri` is in the correct format
+1. Make sure the `redirect_uri` is in the correct format, as it must match exactly
+   1. Check your tenant ID in the URI
+   1. Check `http` vs `https`
+   1. Remove the trailing slash if present
+1. The `email` and `wallet` scopes are required, but all the other scopes are optional
