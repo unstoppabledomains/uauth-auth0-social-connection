@@ -15,14 +15,20 @@
       "default": true
     },
     {
-      "scope": "humanity_check",
-      "label": "Humanity Check",
+      "scope": "profile",
+      "label": "Profile",
       "required": false,
-      "default": false
+      "default": true
     },
     {
-      "scope": "humanity_check:optional",
-      "label": "Humanity Check - Optional",
+      "scope": "social",
+      "label": "Social connections",
+      "required": false,
+      "default": true
+    },
+    {
+      "scope": "humanity_check",
+      "label": "Humanity Check",
       "required": false,
       "default": false
     }
