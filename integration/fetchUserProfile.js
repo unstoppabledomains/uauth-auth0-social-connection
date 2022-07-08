@@ -20,16 +20,41 @@ module.exports = function fetchUserProfile(accessToken, context, callback) {
       } catch (jsonError) {
         return callback(new Error(body));
       }
+
+      // create a default profile with data that will be present regardless
+      // of the requested scopes
       const profile = {
-        user_id: bodyParsed.wallet_address,
-        nickname: bodyParsed.wallet_address,
+        user_id: bodyParsed.sub,
         name: bodyParsed.sub,
-        email: bodyParsed.email,
-        email_verified: bodyParsed.email_verified,
+        nickname: bodyParsed.sub,
+        username: bodyParsed.sub,
         app_metadata: {
-          wallet_address: bodyParsed.wallet_address,
+          userInfo: bodyParsed,
         },
       };
+
+      // expand with wallet data if present
+      if (bodyParsed.wallet_address) {
+        profile.nickname = bodyParsed.wallet_address;
+        profile.app_metadata.wallet_address = bodyParsed.wallet_address;
+      }
+
+      // expand with email data if present
+      if (bodyParsed.email) {
+        profile.email = bodyParsed.email;
+        profile.email_verified = bodyParsed.email_verified;
+      }
+
+      // expand with profile data if present
+      if (bodyParsed.name) {
+        profile.name = bodyParsed.name;
+        profile.nickname = bodyParsed.sub;
+      }
+      if (bodyParsed.picture) {
+        profile.picture = bodyParsed.picture;
+      }
+
+      // return the normalized profile
       return callback(null, profile);
     }
   );

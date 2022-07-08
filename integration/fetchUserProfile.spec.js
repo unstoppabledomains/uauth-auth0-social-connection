@@ -89,13 +89,62 @@ describe("fetchUserProfile", () => {
       expect(profileCallback.mock.calls).toHaveLength(1);
       expect(profileCallback.mock.calls[0][0]).toBeNull();
       expect(profileCallback.mock.calls[0][1]).toEqual({
-        user_id: "__test_wallet_address__",
+        user_id: "__test_sub__",
         name: "__test_sub__",
+        username: "__test_sub__",
         nickname: "__test_wallet_address__",
         email: "__test_email__",
         email_verified: true,
         app_metadata: {
           wallet_address: "__test_wallet_address__",
+          userInfo: {
+            sub: "__test_sub__",
+            email: "__test_email__",
+            email_verified: true,
+            wallet_address: "__test_wallet_address__",
+          }
+        },
+      });
+    });
+
+    it("should fill in profile scope data when present", () => {
+      const responseBody = {
+        sub: "__test_sub__",
+        email: "__test_email__",
+        email_verified: true,
+        wallet_address: "__test_wallet_address__",
+        name: "__test_name__",
+        picture: "__test_picture__",
+      };
+
+      global.request = {
+        get: jest.fn((opts, cb) => {
+          cb(null, { statusCode: 200 }, JSON.stringify(responseBody));
+        }),
+      };
+
+      fetchUserProfile(1, defaultContext, profileCallback);
+
+      expect(profileCallback.mock.calls).toHaveLength(1);
+      expect(profileCallback.mock.calls[0][0]).toBeNull();
+      expect(profileCallback.mock.calls[0][1]).toEqual({
+        user_id: "__test_sub__",
+        name: "__test_name__",
+        username: "__test_sub__",
+        nickname: "__test_sub__",
+        picture: "__test_picture__",
+        email: "__test_email__",
+        email_verified: true,
+        app_metadata: {
+          wallet_address: "__test_wallet_address__",
+          userInfo: {
+            sub: "__test_sub__",
+            email: "__test_email__",
+            email_verified: true,
+            wallet_address: "__test_wallet_address__",
+            name: "__test_name__",
+            picture: "__test_picture__",
+          }
         },
       });
     });
