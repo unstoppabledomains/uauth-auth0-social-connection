@@ -35,7 +35,6 @@ module.exports = function fetchUserProfile(accessToken, context, callback) {
 
       // expand with wallet data if present
       if (bodyParsed.wallet_address) {
-        profile.nickname = bodyParsed.wallet_address;
         profile.app_metadata.wallet_address = bodyParsed.wallet_address;
       }
 
