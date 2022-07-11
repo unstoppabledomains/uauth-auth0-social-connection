@@ -92,7 +92,7 @@ describe("fetchUserProfile", () => {
         user_id: "__test_sub__",
         name: "__test_sub__",
         username: "__test_sub__",
-        nickname: "__test_wallet_address__",
+        nickname: "__test_sub__",
         email: "__test_email__",
         email_verified: true,
         app_metadata: {
