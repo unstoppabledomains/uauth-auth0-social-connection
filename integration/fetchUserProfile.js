@@ -43,7 +43,7 @@ module.exports = function fetchUserProfile(accessToken, context, callback) {
 
       // expand with profile data if present
       if (bodyParsed.name) {
-        profile.name = bodyParsed.name; 
+        profile.name = bodyParsed.name;
       }
       if (bodyParsed.picture) {
         profile.picture = bodyParsed.picture;

@@ -99,7 +99,7 @@ describe("fetchUserProfile", () => {
             email: "__test_email__",
             email_verified: true,
             wallet_address: "__test_wallet_address__",
-          }
+          },
         },
       });
     });
@@ -139,7 +139,7 @@ describe("fetchUserProfile", () => {
             wallet_address: "__test_wallet_address__",
             name: "__test_name__",
             picture: "__test_picture__",
-          }
+          },
         },
       });
     });

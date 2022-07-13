@@ -53,28 +53,28 @@ the dApp but is not included in the default profile. Adding a custom claim is ve
 See the Auth0's example to [Add custom claims to a token](https://auth0.com/docs/get-started/apis/scopes/sample-use-cases-scopes-and-claims#add-custom-claims-to-a-token). The
 code to paste into the dashboard for the custom claim is below.
 
-```
+```js
 /**
-* Handler that will be called during the execution of a PostLogin flow.
-*
-* @param {Event} event - Details about the user and the context in which they are logging in.
-* @param {PostLoginAPI} api - Interface whose methods can be used to change the behavior of the login.
-*/
+ * Handler that will be called during the execution of a PostLogin flow.
+ *
+ * @param {Event} event - Details about the user and the context in which they are logging in.
+ * @param {PostLoginAPI} api - Interface whose methods can be used to change the behavior of the login.
+ */
 exports.onExecutePostLogin = async (event, api) => {
   const { strategy, name: connection } = event.connection;
   const { configuration, secrets } = event;
 
-  if (strategy !== 'oauth2' || connection !== 'social-connection-integration-test') {
+  if (strategy !== "oauth2" || connection !== "social-connection-integration-test") {
     //This action only works for the unstoppable domains connection
     return;
   }
 
-  const claim = 'https://unstoppabledomains.com/wallet_address';
-  const value = event.user.app_metadata.wallet_address
+  const claim = "https://unstoppabledomains.com/wallet_address";
+  const value = event.user.app_metadata.wallet_address;
 
   api.idToken.setCustomClaim(claim, value);
   api.accessToken.setCustomClaim(claim, value);
-}
+};
 ```
 
 ## Test connection
