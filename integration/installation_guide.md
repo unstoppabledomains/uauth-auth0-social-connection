@@ -9,28 +9,30 @@ Login with Unstoppable allows an Unstoppable Domains user to access your applica
 
 You will need two pieces of information from the Unstoppable Domains client dashboard: `client_id` and `client_secret`. These values will be used when you configure the Auth0 social connection.
 
-1. Login to the Unstoppable Domains Client Dashboard
+1. Login to the Unstoppable Domains [Client Dashboard](https://dashboard.auth.unstoppabledomains.com/)
    1. Connect a crypto wallet such as Metamask
    1. Your client ID will be associated with the connected wallet
-   1. Keep the keys to your wallet in a safe place256
+   1. Keep the keys to your wallet in a safe place
 1. Create a new client ID
+   1. Click the "New Client" button on your dashboard landing page
    1. Make note of the `client_id` value at the top of the page
    1. **Use this value in the `Client ID` field on the Unstoppable Domains social connection**
 1. Add a redirect URI for your tenant
    1. Login with Unstoppable expects the redirect URI to be `https://TENANT_ID.us.auth0.com/login/callback`
-   1. Make sure to use the exact format above
+   1. Enter your Auth0 tenant's redirect URI into the "Add Redirect URI" text field
    1. Click the `+` button to verify the URI
-1. Click advanced configuration
+1. Click "Advanced" tab in the Configure menu
+   1. Scroll to bottom of the page
    1. Find *Token Endpoint Authentication Method* option
    1. Select *Client Secret Post*
-1. Go back to top of page
-   1. Click the *Rotate Secret* button
+1. Click the "Save changes" button
+1. Click "Basic" tab in the Configure menu
    1. Make note of the new `clientSecret` value in the configuration (it will only be displayed once)
    1. **Use this value in the `Client Secret` field on the Unstoppable Domains social connection**
+   1. You can create a new secret at any time using the "Rotate Secret" button
 1. Add custom branding to your client (Recommended)
-   1. Client name
-   1. Client URI
-   1. Logo URI
+   1. Click the "Branding" tab in the Configure menu
+   1. Enter any application specific values to be displated on your Login with Unstoppable login page
 1. Click the save button to store your configuration
 
 ## Add the Connection
@@ -44,6 +46,78 @@ You will need two pieces of information from the Unstoppable Domains client dash
 1. Turn on or off syncing user profile attributes at each login
 1. Select **Create**
 1. Select the **Applications** tab and choose the Applications that should use this Connection to login
+
+## Add custom claims (optional)
+
+Some of the claims offered by Unstoppable Domains are outside the standard OAuth2 specification. Specifically, the `wallet_address` claim may be useful to
+the dApp but is not included in the default profile. Adding a custom claim is very easy, and just requires a few one-time steps in your Auth0 dashboard.
+
+See the Auth0's example to [Add custom claims to a token](https://auth0.com/docs/get-started/apis/scopes/sample-use-cases-scopes-and-claims#add-custom-claims-to-a-token). The
+code to paste into the dashboard for the custom claim is below.
+
+```js
+/**
+ * Handler that will be called during the execution of a PostLogin flow.
+ *
+ * @param {Event} event - Details about the user and the context in which they are logging in.
+ * @param {PostLoginAPI} api - Interface whose methods can be used to change the behavior of the login.
+ */
+exports.onExecutePostLogin = async (event, api) => {
+  const { strategy, name: connection } = event.connection;
+  const { configuration, secrets } = event;
+
+  if (strategy !== "oauth2" || connection !== "unstoppanle-domains") {
+    //This action only works for the unstoppable domains connection
+    return;
+  }
+
+  const claim = "https://unstoppabledomains.com/wallet_address";
+  const value = event.user.app_metadata.wallet_address;
+
+  api.idToken.setCustomClaim(claim, value);
+  api.accessToken.setCustomClaim(claim, value);
+};
+```
+
+The same approach can be used to access any of the `app_metadata` or `user_metadata` stored
+in the Auth0 user created after a successful login.
+
+### Example user object
+
+As an example, consider the following sample user that is created by Auth0 through the Unstoppable Domains integration.
+
+```json
+{
+  "app_metadata": {
+    "wallet_address": "0x0389246fB9191Dc41722e1f0D558dC8f82Be3C7A",
+    "chain_id": 1
+  },
+  "email": "4cause.nft@ud.me",
+  "email_verified": true,
+  "identities": [
+    {
+      "provider": "oauth2",
+      "user_id": "unstoppanle-domains|4cause.nft",
+      "connection": "unstoppanle-domains",
+      "isSocial": true
+    }
+  ],
+  "name": "NFT 4 Cause",
+  "nickname": "4cause.nft",
+  "picture": "https://s.gravatar.com/avatar/023474569b3ddbd166584a6a8ff68e1e?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fn4.png",
+  "user_id": "oauth2|unstoppanle-domains|4cause.nft",
+  "user_metadata": {
+    "social": {
+      "discord": "nft4cause#1140",
+      "twitter": "NFT4cause"
+    },
+    "location": "Raleigh, NC",
+    "profileURL": "https://ud.me/4cause.nft",
+    "websiteURL": "https://QmUwrKcjkiXu1DR6GDv8CYT9RMUBsyVyZ2eR7Xny7r2p47.ipfs.dweb.link",
+    "humanityCheckId": "205d9d75-ff6d-4e57-959d-13385b333298"
+  }
+}
+```
 
 ## Test connection
 

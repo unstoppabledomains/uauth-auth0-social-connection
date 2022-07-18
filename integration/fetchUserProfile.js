@@ -25,17 +25,16 @@ module.exports = function fetchUserProfile(accessToken, context, callback) {
       // of the requested scopes
       const profile = {
         user_id: bodyParsed.sub,
-        username: bodyParsed.sub,
-        name: bodyParsed.sub,
-        nickname: bodyParsed.sub,
-        app_metadata: {
-          userInfo: bodyParsed,
+        app_metadata: {},
+        user_metadata: {
+          social: {},
         },
       };
 
       // expand with wallet data if present
       if (bodyParsed.wallet_address) {
         profile.app_metadata.wallet_address = bodyParsed.wallet_address;
+        profile.app_metadata.chain_id = 1;
       }
 
       // expand with email data if present
@@ -47,10 +46,36 @@ module.exports = function fetchUserProfile(accessToken, context, callback) {
       // expand with profile data if present
       if (bodyParsed.name) {
         profile.name = bodyParsed.name;
-        profile.nickname = bodyParsed.sub;
       }
       if (bodyParsed.picture) {
         profile.picture = bodyParsed.picture;
+      }
+      if (bodyParsed.location) {
+        profile.user_metadata.location = bodyParsed.location;
+      }
+      if (bodyParsed.profile) {
+        profile.user_metadata.profileURL = bodyParsed.profile;
+      }
+      if (bodyParsed.website) {
+        profile.user_metadata.websiteURL = bodyParsed.website;
+      }
+      if (bodyParsed.humanity_check_id) {
+        profile.user_metadata.humanityCheckId = bodyParsed.humanity_check_id;
+      }
+      if (bodyParsed.discord) {
+        profile.user_metadata.social.discord = bodyParsed.discord;
+      }
+      if (bodyParsed.twitter) {
+        profile.user_metadata.social.twitter = bodyParsed.twitter;
+      }
+      if (bodyParsed.youtube) {
+        profile.user_metadata.social.youtube = bodyParsed.youtube;
+      }
+      if (bodyParsed.reddit) {
+        profile.user_metadata.social.reddit = bodyParsed.reddit;
+      }
+      if (bodyParsed.telegram) {
+        profile.user_metadata.social.telegram = bodyParsed.telegram;
       }
 
       // return the normalized profile

@@ -90,19 +90,14 @@ describe("fetchUserProfile", () => {
       expect(profileCallback.mock.calls[0][0]).toBeNull();
       expect(profileCallback.mock.calls[0][1]).toEqual({
         user_id: "__test_sub__",
-        name: "__test_sub__",
-        username: "__test_sub__",
-        nickname: "__test_sub__",
         email: "__test_email__",
         email_verified: true,
         app_metadata: {
           wallet_address: "__test_wallet_address__",
-          userInfo: {
-            sub: "__test_sub__",
-            email: "__test_email__",
-            email_verified: true,
-            wallet_address: "__test_wallet_address__",
-          }
+          chain_id: 1,
+        },
+        user_metadata: {
+          social: {},
         },
       });
     });
@@ -114,7 +109,16 @@ describe("fetchUserProfile", () => {
         email_verified: true,
         wallet_address: "__test_wallet_address__",
         name: "__test_name__",
+        location: "__location__",
+        profile: "__profileURL__",
+        website: "__websiteURL__",
+        humanity_check_id: "__humanityCheckId__",
         picture: "__test_picture__",
+        twitter: "__twitter__",
+        discord: "__discord__",
+        youtube: "__youtube__",
+        reddit: "__reddit__",
+        telegram: "__telegram__",
       };
 
       global.request = {
@@ -130,21 +134,25 @@ describe("fetchUserProfile", () => {
       expect(profileCallback.mock.calls[0][1]).toEqual({
         user_id: "__test_sub__",
         name: "__test_name__",
-        username: "__test_sub__",
-        nickname: "__test_sub__",
         picture: "__test_picture__",
         email: "__test_email__",
         email_verified: true,
         app_metadata: {
           wallet_address: "__test_wallet_address__",
-          userInfo: {
-            sub: "__test_sub__",
-            email: "__test_email__",
-            email_verified: true,
-            wallet_address: "__test_wallet_address__",
-            name: "__test_name__",
-            picture: "__test_picture__",
-          }
+          chain_id: 1,
+        },
+        user_metadata: {
+          location: "__location__",
+          profileURL: "__profileURL__",
+          websiteURL: "__websiteURL__",
+          humanityCheckId: "__humanityCheckId__",
+          social: {
+            discord: "__discord__",
+            twitter: "__twitter__",
+            youtube: "__youtube__",
+            reddit: "__reddit__",
+            telegram: "__telegram__",
+          },
         },
       });
     });
