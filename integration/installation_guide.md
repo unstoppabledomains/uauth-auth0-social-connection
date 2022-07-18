@@ -12,6 +12,7 @@ Connecting Auth0 to Unstoppable Domains requires the simple one-time creation of
 ### Demo video
 
 Detailed instructions are provided below, but sometimes it helps to watch a video. https://www.loom.com/share/f1655c8e94cc464188472eea80d0f921
+
 ### Detailed instructions
 
 1. Login to the Unstoppable Domains [Client Dashboard](https://dashboard.auth.unstoppabledomains.com/)
