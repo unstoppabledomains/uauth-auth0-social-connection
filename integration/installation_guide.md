@@ -135,4 +135,7 @@ You're ready to [test this Connection](https://auth0.com/docs/authenticate/ident
    1. Check your tenant ID in the URI
    1. Check `http` vs `https`
    1. Remove the trailing slash if present
-1. The `email` and `wallet` scopes are required, but all the other scopes are optional
+1. The `email` and `wallet` scopes are required, but all the other scopes can be specified as optional
+1. Only configure your app to use the `:optional` or standard scope for each scope pair
+   1. For example, use either `social` or `social:optional`
+   1. Each `:optional` flavor allows user to opt-out of the scope at the login prompt
