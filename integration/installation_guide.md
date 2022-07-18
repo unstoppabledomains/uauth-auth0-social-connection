@@ -7,7 +7,13 @@ Login with Unstoppable allows an Unstoppable Domains user to access your applica
 
 ## Set up Login with Unstoppable
 
-You will need two pieces of information from the Unstoppable Domains client dashboard: `client_id` and `client_secret`. These values will be used when you configure the Auth0 social connection.
+Connecting Auth0 to Unstoppable Domains requires the simple one-time creation of a client ID for your application. In the end, you need two pieces of information from the Unstoppable Domains client dashboard: `client_id` and `client_secret`. These values will be pasted directly into text fields in your new Auth0 social connection.
+
+### Demo video
+
+Detailed instructions are provided below, but sometimes it helps to watch a video. https://www.loom.com/share/f1655c8e94cc464188472eea80d0f921
+
+### Detailed instructions
 
 1. Login to the Unstoppable Domains [Client Dashboard](https://dashboard.auth.unstoppabledomains.com/)
    1. Connect a crypto wallet such as Metamask
@@ -30,7 +36,7 @@ You will need two pieces of information from the Unstoppable Domains client dash
    1. Make note of the new `clientSecret` value in the configuration (it will only be displayed once)
    1. **Use this value in the `Client Secret` field on the Unstoppable Domains social connection**
    1. You can create a new secret at any time using the "Rotate Secret" button
-1. Add custom branding to your client (Recommended)
+1. Add custom branding to your client (optional)
    1. Click the "Branding" tab in the Configure menu
    1. Enter any application specific values to be displated on your Login with Unstoppable login page
 1. Click the save button to store your configuration
@@ -50,7 +56,7 @@ You will need two pieces of information from the Unstoppable Domains client dash
 ## Add custom claims (optional)
 
 Some of the claims offered by Unstoppable Domains are outside the standard OAuth2 specification. Specifically, the `wallet_address` claim may be useful to
-the dApp but is not included in the default profile. Adding a custom claim is very easy, and just requires a few one-time steps in your Auth0 dashboard.
+the dApp but is not included in the default profile. Adding a custom claim is very easy, and just requires a few one-time steps in your Auth0 tenant.
 
 See the Auth0's example to [Add custom claims to a token](https://auth0.com/docs/get-started/apis/scopes/sample-use-cases-scopes-and-claims#add-custom-claims-to-a-token). The
 code to paste into the dashboard for the custom claim is below.
@@ -84,7 +90,7 @@ in the Auth0 user created after a successful login.
 
 ### Example user object
 
-As an example, consider the following sample user that is created by Auth0 through the Unstoppable Domains integration.
+As an example of available user data, consider the following sample user created by Auth0 through the Unstoppable Domains integration.
 
 ```json
 {
