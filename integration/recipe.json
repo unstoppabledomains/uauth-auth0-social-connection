@@ -16,21 +16,39 @@
     },
     {
       "scope": "profile",
-      "label": "Profile",
+      "label": "Profile (required)",
+      "required": false,
+      "default": false
+    },
+    {
+      "scope": "profile:optional",
+      "label": "Profile (optional)",
       "required": false,
       "default": true
     },
     {
       "scope": "social",
-      "label": "Social connections",
+      "label": "Social connections (required)",
+      "required": false,
+      "default": false
+    },
+    {
+      "scope": "social:optional",
+      "label": "Social connections (optional)",
       "required": false,
       "default": true
     },
     {
       "scope": "humanity_check",
-      "label": "Humanity Check",
+      "label": "Humanity Check (required)",
       "required": false,
       "default": false
+    },
+    {
+      "scope": "humanity_check:optional",
+      "label": "Humanity Check (optional)",
+      "required": false,
+      "default": true
     }
   ],
   "configuration": [
