@@ -72,7 +72,7 @@ exports.onExecutePostLogin = async (event, api) => {
   const { strategy, name: connection } = event.connection;
   const { configuration, secrets } = event;
 
-  if (strategy !== "oauth2" || connection !== "unstoppanle-domains") {
+  if (strategy !== "oauth2" || connection !== "unstoppable-domains") {
     //This action only works for the unstoppable domains connection
     return;
   }
