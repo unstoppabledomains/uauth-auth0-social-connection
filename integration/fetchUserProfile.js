@@ -25,6 +25,7 @@ module.exports = function fetchUserProfile(accessToken, context, callback) {
       // of the requested scopes
       const profile = {
         user_id: bodyParsed.sub,
+        name: bodyParsed.sub,
         app_metadata: {},
         user_metadata: {
           social: {},
