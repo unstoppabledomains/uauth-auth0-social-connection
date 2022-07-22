@@ -4,37 +4,37 @@
   "permissions": [
     {
       "scope": "email",
-      "label": "Email",
+      "label": "Email address",
       "required": true,
       "default": true
     },
     {
       "scope": "wallet",
-      "label": "Wallet",
+      "label": "Wallet address",
       "required": true,
       "default": true
     },
     {
       "scope": "profile",
-      "label": "Profile (required)",
+      "label": "User profile (required)",
       "required": false,
       "default": false
     },
     {
       "scope": "profile:optional",
-      "label": "Profile (optional)",
+      "label": "User profile (optional)",
       "required": false,
       "default": true
     },
     {
       "scope": "social",
-      "label": "Social connections (required)",
+      "label": "Social profiles (required)",
       "required": false,
       "default": false
     },
     {
       "scope": "social:optional",
-      "label": "Social connections (optional)",
+      "label": "Social profiles (optional)",
       "required": false,
       "default": true
     },

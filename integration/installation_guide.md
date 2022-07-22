@@ -72,7 +72,7 @@ exports.onExecutePostLogin = async (event, api) => {
   const { strategy, name: connection } = event.connection;
   const { configuration, secrets } = event;
 
-  if (strategy !== "oauth2" || connection !== "unstoppanle-domains") {
+  if (strategy !== "oauth2" || connection !== "unstoppable-domains") {
     //This action only works for the unstoppable domains connection
     return;
   }
@@ -103,15 +103,15 @@ As an example of available user data, consider the following sample user created
   "identities": [
     {
       "provider": "oauth2",
-      "user_id": "unstoppanle-domains|4cause.nft",
-      "connection": "unstoppanle-domains",
+      "user_id": "unstoppable-domains|4cause.nft",
+      "connection": "unstoppable-domains",
       "isSocial": true
     }
   ],
   "name": "NFT 4 Cause",
   "nickname": "4cause.nft",
   "picture": "https://s.gravatar.com/avatar/023474569b3ddbd166584a6a8ff68e1e?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fn4.png",
-  "user_id": "oauth2|unstoppanle-domains|4cause.nft",
+  "user_id": "oauth2|unstoppable-domains|4cause.nft",
   "user_metadata": {
     "social": {
       "discord": "nft4cause#1140",
