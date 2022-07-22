@@ -90,6 +90,7 @@ describe("fetchUserProfile", () => {
       expect(profileCallback.mock.calls[0][0]).toBeNull();
       expect(profileCallback.mock.calls[0][1]).toEqual({
         user_id: "__test_sub__",
+        name: "__test_sub__",
         email: "__test_email__",
         email_verified: true,
         app_metadata: {
