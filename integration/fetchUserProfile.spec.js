@@ -55,7 +55,7 @@ describe("fetchUserProfile", () => {
       fetchUserProfile(1, defaultContext, profileCallback);
 
       expect(profileCallback.mock.calls).toHaveLength(1);
-      expect(profileCallback.mock.calls[0][0]).toEqual(new Error("__test_body__"));
+      expect(profileCallback.mock.calls[0][0]).toEqual(new Error("Error retrieving callback"));
     });
 
     it("should handle invalid JSON responses", () => {
@@ -67,7 +67,7 @@ describe("fetchUserProfile", () => {
       fetchUserProfile(1, defaultContext, profileCallback);
 
       expect(profileCallback.mock.calls).toHaveLength(1);
-      expect(profileCallback.mock.calls[0][0]).toEqual(new Error("__test_invalid_json__"));
+      expect(profileCallback.mock.calls[0][0]).toEqual(new Error("Error parsing user data"));
     });
 
     it("should call the callback with the profile if response is ok", () => {

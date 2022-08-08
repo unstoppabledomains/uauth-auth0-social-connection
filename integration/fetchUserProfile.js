@@ -12,13 +12,13 @@ module.exports = function fetchUserProfile(accessToken, context, callback) {
         return callback(err);
       }
       if (resp.statusCode !== 200) {
-        return callback(new Error(body));
+        return callback(new Error("Error retrieving callback"));
       }
       let bodyParsed;
       try {
         bodyParsed = JSON.parse(body);
       } catch (jsonError) {
-        return callback(new Error(body));
+        return callback(new Error("Error parsing user data"));
       }
 
       // create a default profile with data that will be present regardless
