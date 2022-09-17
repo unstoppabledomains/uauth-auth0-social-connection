@@ -76,6 +76,7 @@ describe("fetchUserProfile", () => {
         email: "__test_email__",
         email_verified: true,
         wallet_address: "__test_wallet_address__",
+        verified_addresses: [{address:"__test_verified_address__"}],
       };
 
       global.request = {
@@ -96,6 +97,7 @@ describe("fetchUserProfile", () => {
         app_metadata: {
           wallet_address: "__test_wallet_address__",
           chain_id: 1,
+          verified_addresses: [{address:"__test_verified_address__"}],
         },
         user_metadata: {
           social: {},
@@ -109,6 +111,7 @@ describe("fetchUserProfile", () => {
         email: "__test_email__",
         email_verified: true,
         wallet_address: "__test_wallet_address__",
+        verified_addresses: [{address:"__test_verified_address__"}],
         name: "__test_name__",
         location: "__location__",
         profile: "__profileURL__",
@@ -141,6 +144,7 @@ describe("fetchUserProfile", () => {
         app_metadata: {
           wallet_address: "__test_wallet_address__",
           chain_id: 1,
+          verified_addresses: [{address:"__test_verified_address__"}],
         },
         user_metadata: {
           location: "__location__",

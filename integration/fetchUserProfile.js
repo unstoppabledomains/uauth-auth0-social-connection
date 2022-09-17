@@ -37,6 +37,9 @@ module.exports = function fetchUserProfile(accessToken, context, callback) {
         profile.app_metadata.wallet_address = bodyParsed.wallet_address;
         profile.app_metadata.chain_id = 1;
       }
+      if (bodyParsed.verified_addresses) {
+        profile.app_metadata.verified_addresses = bodyParsed.verified_addresses;
+      }
 
       // expand with email data if present
       if (bodyParsed.email) {
