@@ -94,34 +94,38 @@ As an example of available user data, consider the following sample user created
 
 ```json
 {
-  "app_metadata": {
-    "wallet_address": "0x0389246fB9191Dc41722e1f0D558dC8f82Be3C7A",
-    "chain_id": 1
-  },
-  "email": "4cause.nft@ud.me",
-  "email_verified": true,
-  "identities": [
-    {
-      "provider": "oauth2",
-      "user_id": "unstoppable-domains|4cause.nft",
-      "connection": "unstoppable-domains",
-      "isSocial": true
-    }
-  ],
-  "name": "NFT 4 Cause",
-  "nickname": "4cause.nft",
-  "picture": "https://s.gravatar.com/avatar/023474569b3ddbd166584a6a8ff68e1e?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fn4.png",
-  "user_id": "oauth2|unstoppable-domains|4cause.nft",
-  "user_metadata": {
-    "social": {
-      "discord": "nft4cause#1140",
-      "twitter": "NFT4cause"
+    "app_metadata": {
+        "wallet_address": "0xCD0DAdAb45bAF9a06ce1279D1342EcC3F44845af",
+        "chain_id": 1
     },
-    "location": "Raleigh, NC",
-    "profileURL": "https://ud.me/4cause.nft",
-    "websiteURL": "https://QmUwrKcjkiXu1DR6GDv8CYT9RMUBsyVyZ2eR7Xny7r2p47.ipfs.dweb.link",
-    "humanityCheckId": "205d9d75-ff6d-4e57-959d-13385b333298"
-  }
+    "created_at": "2022-08-25T20:33:06.469Z",
+    "email": "aaronquirk.x@ud.me",
+    "email_verified": true,
+    "identities": [
+        {
+            "provider": "oauth2",
+            "user_id": "unstoppable-domains|aaronquirk.x",
+            "connection": "unstoppable-domains",
+            "isSocial": true
+        }
+    ],
+    "name": "Aaron Quirk",
+    "nickname": "aaronquirk.x",
+    "picture": "https://storage.googleapis.com/unstoppable-client-assets/images/user/5919054/3cd1b52b-686d-416d-9444-374581d38184.jpeg",
+    "updated_at": "2022-09-13T12:55:30.500Z",
+    "user_id": "oauth2|unstoppable-domains|aaronquirk.x",
+    "user_metadata": {
+        "social": {
+            "twitter": "5quirks"
+        },
+        "location": "Raleigh, NC",
+        "profileURL": "https://ud.me/aaronquirk.x"
+    },
+    "last_ip": "71.69.169.160",
+    "last_login": "2022-09-13T12:55:30.500Z",
+    "logins_count": 12,
+    "blocked_for": [],
+    "guardian_authenticators": []
 }
 ```
 
